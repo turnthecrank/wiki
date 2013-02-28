@@ -29,8 +29,7 @@ git flow feature start story-helloWorld
 </code>
 
 You should get the following output if it works! You will notice that git-flow is good at providing you with a summary of actions and letting you know what repository you are in after you have executed a command. I like this, because I get lost and confused easily.
-<code language="bash">
-Switched to a new branch 'feature/story-helloWorld'
+<code language="bash">Switched to a new branch 'feature/story-helloWorld'
 
 Summary of actions:
 - A new branch 'feature/story-helloWorld' was created, based on 'develop'
