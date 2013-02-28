@@ -35,7 +35,7 @@ Unpacking objects: 100% (6/6), done.
 
 </code>
 
-TODO:<here> add the commands to show how to create the REMOTE develop branch. This was one of the stumbling blocks for me in the git-flow get started article. It wasn't clear how the REMOTE develop branch got created
+TODO: Inline here add the commands to show how to create the REMOTE develop branch. This was one of the stumbling blocks for me in the git-flow get started article. It wasn't clear how the REMOTE develop branch got created
 
 Change directory into the 'turnthecrank.ci' repo you just cloned and do a git-flow init.
 <code language="bash">
