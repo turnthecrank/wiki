@@ -35,8 +35,6 @@ Unpacking objects: 100% (6/6), done.
 
 </code>
 
-TODO: Inline here add the commands to show how to create the REMOTE develop branch. This was one of the stumbling blocks for me in the git-flow get started article. It wasn't clear how the REMOTE develop branch got created
-
 Change directory into the 'turnthecrank.ci' repo you just cloned and do a git-flow init.
 <code language="bash">
 ~/git/turnthecrank.ci$git flow init
@@ -67,4 +65,10 @@ Output from 'git branch' will list all the branches and have a `*` next to the b
 <code language="bash">
 * develop
   master
+</code>
+
+It's wise at this point to push the new develop repository to the remote on GoogleCode.  It's a simple matter with git:
+
+<code language="bash">
+git push origin develop
 </code>
