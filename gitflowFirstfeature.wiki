@@ -1,13 +1,43 @@
 #summary Using gitflow and Google code remote git repository to create your first feature.
 
+
 = Introduction =
 
-Add your content here.
+TODO: Write an introduction to this article about creating your first gitlfow feature using Google Code.
+
+==Create your first 'feature branch' using git flow.==
+
+to least all your local features or 'feature branches' use the 'feature list' command
+<code language="bash">
+~/git/turnthecrank.ci$ git flow feature list
+</code>
+
+If this is your first feature or you don't have any local feature branches you should get the following output.
+<code language="bash">
+No feature branches exist.
+
+You can start a new feature branch:
+
+    git flow feature start <name> [<base>]
 
 
-= Details =
+</code>
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+git-flow is very helpful. After it tells you you don't have any local feature branches it gives you a hint on how to do it. Naming the feature has as many stylistic arguments for and against as you can think of. Here we will use camel case to describe an agile like feature called "story-helloWorld" Here we go.
+<code language="bash">
+git flow feature start story-helloWorld
+</code>
+
+You should get the following output if it works! You will notice that git-flow is good at providing you with a summary of actions and letting you know what repository you are in after you have executed a command. I like this, because I get lost and confused easily.
+<code language="bash">
+Switched to a new branch 'feature/story-helloWorld'
+
+Summary of actions:
+- A new branch 'feature/story-helloWorld' was created, based on 'develop'
+- You are now on branch 'feature/story-helloWorld'
+
+Now, start committing on your feature. When done, use:
+
+     git flow feature finish story-helloWorld
+
+</code>
