@@ -20,4 +20,17 @@ After setting up the Google Code project I decided to create a git repo just for
 
 ==Clone the remote git repo at google code==
 
-` ~/git$ git clone https://senrabc@code.google.com/p/turnthecrank.ci/ `
+Run the clone repo git command on the REMOTE repository
+<code language="bash">
+~/git$ git clone https://senrabc@code.google.com/p/turnthecrank.ci/
+</code>
+
+If everything is working you should see something like this output.
+<code language="bash">
+Cloning into 'turnthecrank.ci'...
+remote: Counting objects: 6, done.
+remote: Finding sources: 100% (6/6), done.
+remote: Total 6 (delta 0)
+Unpacking objects: 100% (6/6), done.
+
+</code>
