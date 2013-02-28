@@ -1,6 +1,7 @@
-#summary One-sentence summary of this page.
-=Using git flow with Google code git repository=
+#Using git flow with Google code git repository
 
+
++Using git flow with Google code git repository=
 = Introduction =
 
 The purpose of this article is for me to condense all the information I found online about git, gitflow and Google code that I found useful to me. Your mileage may vary.
