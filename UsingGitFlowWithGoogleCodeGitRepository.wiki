@@ -1,4 +1,5 @@
 #summary Using git flow with Google code git repository
+#labels Git,git-flow
 
 
 =Using git flow with Google code git repository=
