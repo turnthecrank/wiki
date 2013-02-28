@@ -11,5 +11,6 @@ The purpose of this article is for me to condense all the information I found on
 = Details =
 
 *Helpful links \ Required reading*
-  Getting Started with Google Code [http://code.google.com/p/support/wiki/GettingStarted]
-  Getting Started with git-flow [http://yakiloo.com/getting-started-git-flow/]
+  *  Getting Started with Google Code [http://code.google.com/p/support/wiki/GettingStarted]
+  *  Getting Started with git-flow [http://yakiloo.com/getting-started-git-flow/]
+
