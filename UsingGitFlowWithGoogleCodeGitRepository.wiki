@@ -57,3 +57,14 @@ Support branches? [support/]
 Version tag prefix? [] 
 
 </code>
+
+If you run git branch you should now be on your local develop branch for the turnthecrank.ci repo.
+
+<code language="bash">
+~/git/turnthecrank.ci$ git branch
+</code>
+Output from 'git branch' will list all the branches and have a `*` next to the branch you are switched to.
+<code language="bash">
+* develop
+  master
+</code>
