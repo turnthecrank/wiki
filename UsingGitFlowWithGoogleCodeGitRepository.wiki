@@ -1,4 +1,4 @@
-#Using git flow with Google code git repository
+#summary Using git flow with Google code git repository
 
 
 =Using git flow with Google code git repository=
