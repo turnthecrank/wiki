@@ -34,3 +34,26 @@ remote: Total 6 (delta 0)
 Unpacking objects: 100% (6/6), done.
 
 </code>
+
+TODO:<here> add the commands to show how to create the REMOTE develop branch. This was one of the stumbling blocks for me in the git-flow get started article. It wasn't clear how the REMOTE develop branch got created
+
+Change directory into the 'turnthecrank.ci' repo you just cloned and do a git-flow init.
+<code language="bash">
+~/git/turnthecrank.ci$git flow init
+</code>
+I accept all the defaults by hitting enter and get the following output.
+<code language="bash">
+
+Which branch should be used for bringing forth production releases?
+   - master
+Branch name for production releases: [master] 
+Branch name for "next release" development: [develop] 
+
+How to name your supporting branch prefixes?
+Feature branches? [feature/] 
+Release branches? [release/] 
+Hotfix branches? [hotfix/] 
+Support branches? [support/] 
+Version tag prefix? [] 
+
+</code>
