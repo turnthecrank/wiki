@@ -73,4 +73,7 @@ It's wise at this point to push the new branch to the remote on Google Code. Thi
 git push origin develop
 </code>
 
+You are now ready to create your first feature. 
+
 =Next: gitflow first feature with Google code=
+[http://code.google.com/p/turnthecrank/wiki/gitflowFirstfeature]
