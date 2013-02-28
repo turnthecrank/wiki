@@ -1,4 +1,4 @@
-#summary Using git flow with Google code git repository
+#summary Getting started using git flow with Google code git repository
 #labels Git,git-flow
 
 
@@ -72,3 +72,5 @@ It's wise at this point to push the new branch to the remote on Google Code. Thi
 <code language="bash">
 git push origin develop
 </code>
+
+=Next: gitflow first feature with Google code=
