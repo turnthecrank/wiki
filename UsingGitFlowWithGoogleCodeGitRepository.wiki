@@ -67,7 +67,7 @@ Output from 'git branch' will list all the branches and have a `*` next to the b
   master
 </code>
 
-It's wise at this point to push the new develop repository to the remote on Google Code.  It's a simple matter with git:
+It's wise at this point to push the new develop repository to the remote on Google Code.  It's a simple matter with git.
 
 <code language="bash">
 git push origin develop
