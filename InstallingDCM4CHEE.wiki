@@ -1,0 +1,139 @@
+#summary A recipe for installing DCM4CHEE 2.17.1
+
+= Introduction =
+
+As a prelude to a production implementation of the PACS system, dcm4chee, we are building this pilot system.
+
+
+= Details =
+
+References
+ * http://www.dcm4che.org/confluence/display/ee2/Installation
+
+
+Download and install Jboss 4.2.3 for jdk5
+
+<code language="bash">
+cd /tmp
+wget -O jboss-4.2.3.GA.zip http://downloads.sourceforge.net/project/jboss/JBoss/JBoss-4.2.3.GA/jboss-4.2.3.GA.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fjboss%2Ffiles%2FJBoss%2FJBoss-4.2.3.GA%2F&ts=1357251067&use_mirror=superb-dca2
+
+sudo mkdir /opt/
+cd /opt
+sudo unzip /tmp/jboss-4.2.3.GA.zip
+</code>
+
+
+Download and install dcm4chee-2.17.1  Use the mySQL version for now, 'cause we know it well. Consider other options in production.
+
+<code language="bash">
+wget -O dcm4chee-2.17.1-mysql.zip http://downloads.sourceforge.net/project/dcm4che/dcm4chee/2.17.1/dcm4chee-2.17.1-mysql.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2Fdcm4chee%2F2.17.1%2F&ts=1357766171&use_mirror=iweb
+
+sudo apt-get install unzip
+sudo mkdir /opt/
+cd /opt
+sudo unzip /tmp/dcm4chee-2.17.1-mysql.zip
+</code>
+
+Install jboss parts into dcm4chee
+
+<code language="bash">
+cd /opt/dcm4chee-2.17.1-mysql/bin
+sudo sh install_jboss.sh /opt/jboss-4.2.3.GA
+</code>
+
+Get replacement JAI Image IO package for Linux-amd64 by copying libclib_jiio.so to dcm4chee-2.17.1-xxx/bin/native
+
+<code language="bash">
+cd /tmp
+wget http://download.java.net/media/jai-imageio/builds/release/1.1/jai_imageio-1_1-lib-linux-amd64.tar.gz
+tar xzvf jai_imageio-1_1-lib-linux-amd64.tar.gz
+sudo cp jai_imageio-1_1/lib/libclib_jiio.so /opt/dcm4chee-2.17.1-mysql/bin/native/libclib_jiio.so
+</code>
+
+Make the MySQL database for dcm4chee-2.17.1-mysql and populate it
+
+<code language="bash">
+cat << END | mysql -uroot
+create database pacsdb;
+grant all on pacsdb.* to 'pacs'@'localhost' identified by 'pacs';
+END
+mysql -upacs -ppacs pacsdb < /opt/dcm4chee-2.17.1-mysql/sql/create.mysql
+</code>
+
+Download and install dcm4chee-arr-3.0.11-mysql
+
+<code language="bash">
+cd /tmp
+wget -O dcm4chee-arr-3.0.11-mysql.zip http://downloads.sourceforge.net/project/dcm4che/dcm4chee-arr/3.0.11/dcm4chee-arr-3.0.11-mysql.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2Fdcm4chee-arr%2F3.0.11%2F&ts=1361997187&use_mirror=hivelocity
+cd /opt
+sudo unzip /tmp/dcm4chee-arr-3.0.11-mysql.zip
+sudo chmod go-w /opt/dcm4chee-arr-3.0.11-mysql/
+</code>
+
+Install jboss parts into dcm4chee-arr according to dcm4chee-arr INSTALL.txt
+
+<code language="bash">
+cd /opt/dcm4chee-arr-3.0.11-mysql/bin
+sudo sh install_jboss.sh /opt/jboss-4.2.3.GA
+</code>
+
+Configure dcm4chee-arr Database in MySQL according to dcm4chee-arr INSTALL.txt
+
+<code language="bash">
+cat << END | mysql -uroot
+create database arrdb;
+grant all on arrdb.* to 'arr'@'localhost' identified by 'arr';
+END
+</code>
+
+Install our preferred JDK
+
+<code language="bash">
+apt-get install openjdk-6-jdk
+</code>
+
+Install dcm4chee-arr parts into dcm4chee
+
+<code language="bash">
+cd /opt/dcm4chee-2.17.1-mysql/bin
+sudo sh install_arr.sh /opt/dcm4chee-arr-3.0.11-mysql/
+</code>
+
+Aim environment variable JAVA_HOME to the JDK location by adding JAVA_HOME="/usr/lib/jvm/java-6-openjdk" to the appropriate .conf files
+
+<code language="bash">
+cd /opt/dcm4chee-arr-3.0.11-mysql/bin
+cat << END | sudo patch -p2
+--- a/bin/run.conf
++++ b/bin/run.conf
+@@ -30,6 +30,7 @@
+ # be defined to $JAVA_HOME/bin/java, else $JAVA will be "java".
+ #
+ #JAVA_HOME="/opt/java/jdk"
++JAVA_HOME="/usr/lib/jvm/java-6-openjdk"
+ 
+ #
+ # Specify the exact Java VM executable to use.
+END
+</code>
+
+<code language="bash">
+cd /opt/dcm4chee-2.17.1-mysql/bin
+cat << END | sudo patch -p1
+--- a/run.conf
++++ b/run.conf
+@@ -30,6 +30,7 @@
+ # be defined to $JAVA_HOME/bin/java, else $JAVA will be "java".
+ #
+ #JAVA_HOME="/opt/java/jdk"
++JAVA_HOME="/usr/lib/jvm/java-6-openjdk"
+ 
+ #
+ # Specify the exact Java VM executable to use.
+END
+</code>
+
+
+Address these items:
+
+* 17:22:14,538 WARN  [SecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
