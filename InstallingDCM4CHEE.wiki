@@ -152,7 +152,12 @@ Modify web image cache directories setting CacheDataRootDirectory = "/var/cache/
   * Follow the link "service=WADOService" to the configuration page for the WADO Service
   * Set the attribute values for "CacheDataRootDirectory" and "CacheJournalRootDirectory"
 
-Pick up work at step 14 of http://www.dcm4che.org/confluence/display/ee2/Installation
+Set the directory used for caching generated PDF representations of archived Structured Report Documents requested by IHE Retrieve Information for Display (RID) Services to /var/cache/dcm4chee/rid/store
+
+* edit opt/dcm4chee-2.17.1-mysql/conf/dcm4chee-docstore/dcm4chee-docstore-cfg.xml  (_this section needs work_)
+
+Test your work...
+
 
 Address these items:
 
