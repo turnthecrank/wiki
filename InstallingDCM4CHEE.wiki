@@ -134,17 +134,23 @@ END
 </code>
 
 
-Set the file system location for the image archive by following these steps.
+Set the file system location for the image archive to "/dcm4chee-archive" by following these steps.
 
   * Connect to JBoss's JMX Console at http://localhost:8080/jmx-console/ and login using also the Administrator account 'admin', with password 'admin'. 
   * Follow the link "group=ONLINE_STORAGE,service=FileSystemMgt" to the configuration page for File System Management service under the "dcm4chee.archive" heading. 
-  * Invoke the operation addRWFileSystem(), with argument dirPath specifying the directory, where the archive shall store received objects/images.  /dcm4chee-archive is a nice path for testing purposes.
+  * Invoke the operation addRWFileSystem(), with argument dirPath specifying the directory, where the archive shall store received objects/images.  
 
 Change the default AE Title by following these steps.
 
-  * Connect to JBoss's JMX Console at http://localhost:8080/jmx-console/ and login using also the Administrator account 'admin', with password 'admin'.
+  * Connect to JBoss's JMX Console as above 
   * Follow the link "service=AE" to the configuration page for AE (Application Entity - a DICOM term for a DICOM node on the network) service under the "dcm4chee.archive" heading.
   * Invoke the operation updateAETitle with the old AE Title (DCM4CHEE if unchanged from the default), and new AE Title as parameters.  
+
+Modify web image cache directories setting CacheDataRootDirectory = "/var/cache/wadocachedata" and CacheJournalRootDirectory = "/var/cache/wadocachejournal".
+
+  * Connect to JBOSS as above.
+  * Follow the link "service=WADOService" to the configuration page for the WADO Service
+  * Set the attribute values for "CacheDataRootDirectory" and "CacheJournalRootDirectory"
 
 Address these items:
 
