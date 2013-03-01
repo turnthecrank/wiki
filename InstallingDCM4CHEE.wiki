@@ -152,6 +152,8 @@ Modify web image cache directories setting CacheDataRootDirectory = "/var/cache/
   * Follow the link "service=WADOService" to the configuration page for the WADO Service
   * Set the attribute values for "CacheDataRootDirectory" and "CacheJournalRootDirectory"
 
+Pick up work at step 14 of http://www.dcm4che.org/confluence/display/ee2/Installation
+
 Address these items:
 
 * 17:22:14,538 WARN  [SecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
