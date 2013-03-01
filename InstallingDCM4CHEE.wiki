@@ -134,6 +134,20 @@ END
 </code>
 
 
+Set the file system location for the image archive by following these steps.
+
+{{{
+Connect to JBoss's JMX Console at http://localhost:8080/jmx-console/ and login using also the Administrator account 'admin', with password 'admin'. Follow the link "group=ONLINE_STORAGE,service=FileSystemMgt" to the configuration page for File System Management service under the "dcm4chee.archive" heading. Invoke the operation addRWFileSystem(), with argument dirPath specifying the directory, where the archive shall store received objects/images.
+}}}
+
+Change the default AE Title by following these steps.
+
+{{{
+Connect to JBoss's JMX Console at http://localhost:8080/jmx-console/ and login using also the Administrator account 'admin', with password 'admin'.
+Follow the link "service=AE" to the configuration page for AE (Application Entity - a DICOM term for a DICOM node on the network) service under the "dcm4chee.archive" heading.
+Invoke the operation updateAETitle with the old AE Title (DCM4CHEE if unchanged from the default), and new AE Title as parameters.
+}}}
+
 Address these items:
 
 * 17:22:14,538 WARN  [SecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
