@@ -11,33 +11,34 @@ This environment is outside the standard, recommended method, but it is quick an
 Stop Tomcat.
 
 <code language="bash">
-sudo /etc/init.d/tomcat7 stop
+export TOMCAT=tomcat6
+sudo /etc/init.d/$TOMCAT stop
 </code>
 
 Configure each of the RPMS applications.
 
 <code language="bash">
-cat << END | sudo tee /var/lib/tomcat7/shared/classes/consent-services.props
+cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-services.props
 neo4j-db-path=/data/rpms
 END
 
-cat << END | sudo tee /var/lib/tomcat7/shared/classes/consent-client.props
+cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-client.props
 services.url=http://localhost/services
-
 END
+
 </code>
 
 Copy the war files to the Tomcat webapps directory
 
 <code language="bash">
-find . -iname "*.war" | grep consent-services | xargs -i sudo cp {} /var/lib/tomcat7/webapps/services.war
-find . -iname "*.war" | grep consent-collect | xargs -i sudo cp {} /var/lib/tomcat7/webapps/collect.war
-find . -iname "*.war" | grep consent-admin | xargs -i sudo cp {} /var/lib/tomcat7/webapps/admin.war
+find . -iname "*.war" | grep consent-services | xargs -i sudo cp {} /var/lib/$TOMCAT/webapps/services.war
+find . -iname "*.war" | grep consent-collect | xargs -i sudo cp {} /var/lib/$TOMCAT/webapps/collect.war
+find . -iname "*.war" | grep consent-admin | xargs -i sudo cp {} /var/lib/$TOMCAT/webapps/admin.war
 </code>
 
-Start tomcat7 and monitor the deployment
+Start tomcat and monitor the deployment
 
 <code language="bash">
-sudo /etc/init.d/tomcat7 start
-tail -f /var/lib/tomcat7/logs/catalina.out
+sudo /etc/init.d/$TOMCAT start
+tail -f /var/lib/$TOMCAT/logs/catalina.out
 </code>
