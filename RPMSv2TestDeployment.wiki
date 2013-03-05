@@ -1,8 +1,8 @@
-An express deployment of RPMSv2 on Tomcat7 on Ubuntu 12.10
+An express deployment of RPMSv2 on Tomcat6 on Debian Squeeze
 
 = Introduction =
 
-This document describes a scripted installation of RPMS v2 in a test environment.  It assumes you are building from source and deploying directly from the root of your source tree.  Tomcat7 and Ubuntu 12.10 are the infrastructure for this deployment.  Further, this deployment is to a single Tomcat instance.  As this is a single instance of tomcat, the admin and collector apps are configured to find the services app at local host.
+This document describes a scripted installation of RPMS v2 in a test environment.  It assumes you are building from source and deploying directly from the root of your source tree.  Tomcat6 and Debian Squeeze are the infrastructure for this deployment.  Further, this deployment is to a single Tomcat instance.  As this is a single instance of tomcat, the admin and collector apps are configured to find the services app at local host.
 
 This environment is outside the standard, recommended method, but it is quick and easy.
 
