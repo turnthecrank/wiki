@@ -28,6 +28,20 @@ END
 
 </code>
 
+If you don't already have it configured, set the log4j properties as well:
+
+<code language="bash">
+cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/log4j.properties
+log4j.rootLogger=WARN, console
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.conversionPattern=%5p [%t] (%F:%L) - %m%n
+END
+
+</code>
+
+
+
 Copy the war files to the Tomcat webapps directory
 
 <code language="bash">
