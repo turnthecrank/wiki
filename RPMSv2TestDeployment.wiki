@@ -1,0 +1,42 @@
+An express deployment of RPMSv2 on Tomcat7 on Ubuntu 12.10
+
+= Introduction =
+
+This document describes a scripted installation of RPMS v2 in a test environment.  It assumes you are building from source and deploying directly from the root of your source tree.  Tomcat7 and Ubuntu 12.10 are the infrastructure for this deployment.  Further, this deployment is to a single Tomcat instance.  As this is a single instance of tomcat, the admin and collector apps are configured to find the services app at local host.
+
+This environment is outside the standard, recommended method, but it is quick and easy.
+
+= Details =
+
+Stop Tomcat.
+
+<code language="bash">
+sudo /etc/init.d/tomcat7 stop
+</code>
+
+Configure each of the RPMS applications.
+
+<code language="bash">
+cat << END | sudo tee /var/lib/tomcat7/shared/classes/consent-services.props
+neo4j-db-path=/data/rpms
+END
+
+cat << END | sudo tee /var/lib/tomcat7/shared/classes/consent-client.props
+services.url=http://localhost/services
+END
+</code>
+
+Copy the war files to the Tomcat webapps directory
+
+<code language="bash">
+find . -iname "*.war" | grep consent-services | xargs -i sudo cp {} /var/lib/tomcat7/webapps/services.war
+find . -iname "*.war" | grep consent-collect | xargs -i sudo cp {} /var/lib/tomcat7/webapps/collect.war
+find . -iname "*.war" | grep consent-admin | xargs -i sudo cp {} /var/lib/tomcat7/webapps/admin.war
+</code>
+
+Start tomcat7 and monitor the deployment
+
+<code language="bash">
+sudo /etc/init.d/tomcat7 start
+tail -f /var/lib/tomcat7/logs/catalina.out
+</code>
