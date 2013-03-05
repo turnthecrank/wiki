@@ -23,6 +23,7 @@ END
 
 cat << END | sudo tee /var/lib/tomcat7/shared/classes/consent-client.props
 services.url=http://localhost/services
+
 END
 </code>
 
