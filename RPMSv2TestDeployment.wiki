@@ -23,7 +23,11 @@ neo4j-db-path=/data/rpms
 END
 
 cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-client.props
-services.url=http://localhost/services
+services.url=http://localhost:8080/services
+END
+
+cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-admin.props
+services.url=http://localhost:8080/services
 END
 
 </code>
