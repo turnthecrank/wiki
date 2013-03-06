@@ -56,3 +56,11 @@ Start tomcat and monitor the deployment
 sudo /etc/init.d/$TOMCAT start
 tail -f /var/lib/$TOMCAT/logs/catalina.out
 </code>
+
+Access the admin app at http://127.0.0.1:8080/admin/  These usernames are valid:
+
+|| *Username* || *Password* || *Role* ||
+|| admin || root || superuser ||
+|| ex-admin || password || Admin for Example Organization ||
+|| ex-admin || password || Admin for Example Organization ||
+|| ex-theman || password || Can do everything within Example Organization ||
