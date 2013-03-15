@@ -24,6 +24,7 @@ END
 
 cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-collector.props
 services.url=http://localhost:8080/services
+rpms2.dsa.url=http://localhost:8080/services
 END
 
 cat << END | sudo tee /var/lib/$TOMCAT/shared/classes/consent-admin.props
