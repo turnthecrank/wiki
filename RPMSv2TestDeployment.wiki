@@ -70,3 +70,5 @@ Access the admin app at http://127.0.0.1:8080/admin/  These accounts are valid:
 || ex-theman || password || Can do everything within Example Organization ||
 
 To locate other predefined accounts, search the file ./consent-services/src/main/clojure/org/healthsciencessc/rpms2/consent_services/seed.clj in source control.
+
+Access the collector app at http://127.0.0.1:8080/collect/view/login
