@@ -174,9 +174,19 @@ Note, Wikipedia provides these default TCP and UDP port numbers for DICOM servic
  * 2762 registered port for DICOM using Transport Layer Security (TLS) over TCP or UDP
  * 11112 registered port for DICOM using standard, open communication over TCP or UDP
 
+Test your work
 
-Test your work...
+There a few ways to test your work.  Linux clients often have dcmtk and its suite of tools.  You can send an image with the storescu utility:
 
+<code language="bash">
+storescu -aec _aetitleOfServer_ _serverPortNumber_ _serverHostname_ _filename_
+</code>
+
+Or use dcm4che.
+
+<code language="bash">
+dcmsnd _aetitleOfServer@serverHostname:serverPortNumber_  _filename_
+</code>
 
 Address these items:
 
