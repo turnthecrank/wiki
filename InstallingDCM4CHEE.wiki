@@ -133,6 +133,11 @@ cat << END | sudo patch -p1
 END
 </code>
 
+Start JBOSS and dcm4chee.
+
+<code language="bash">
+cd /opt/dcm4chee-2.17.1-mysql/bin; sudo sh run.sh
+</code>
 
 Set the file system location for the image archive to "/dcm4chee-archive" by following these steps.
 
@@ -155,6 +160,14 @@ Modify web image cache directories setting CacheDataRootDirectory = "/var/cache/
 Set the directory used for caching generated PDF representations of archived Structured Report Documents requested by IHE Retrieve Information for Display (RID) Services to /var/cache/dcm4chee/rid/store
 
 * edit opt/dcm4chee-2.17.1-mysql/conf/dcm4chee-docstore/dcm4chee-docstore-cfg.xml  (_this section needs work_)
+
+Note, Wikipedia provides these default TCP and UDP port numbers for DICOM services:
+
+ * 104 well-known port for DICOM over TCP or UDP. Since 104 is in the reserved subset, many operating systems require special privileges to use it.
+ * 2761 registered port for DICOM using Integrated Secure Communication Layer (ISCL) over TCP or UDP
+ * 2762 registered port for DICOM using Transport Layer Security (TLS) over TCP or UDP
+ * 11112 registered port for DICOM using standard, open communication over TCP or UDP
+
 
 Test your work...
 
