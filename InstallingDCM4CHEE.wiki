@@ -159,6 +159,12 @@ Modify web image cache directories setting CacheDataRootDirectory = "/var/cache/
 
 Set the directory used for caching generated PDF representations of archived Structured Report Documents requested by IHE Retrieve Information for Display (RID) Services to /var/cache/dcm4chee/rid/store
 
+Allow the server to accept dicoms with an missing patient ID.
+
+  * Connect to JBOSS as above.
+  * Follow the link "service=StoreScp" to the configuration page for the WADO Service
+  * Set the attribute value "AcceptMissingPatientID" to "true".
+
 * edit opt/dcm4chee-2.17.1-mysql/conf/dcm4chee-docstore/dcm4chee-docstore-cfg.xml  (_this section needs work_)
 
 Note, Wikipedia provides these default TCP and UDP port numbers for DICOM services:
