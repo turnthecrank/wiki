@@ -188,6 +188,19 @@ Or use dcm4che.
 dcmsnd _aetitleOfServer@serverHostname:serverPortNumber_  _filename_
 </code>
 
-Address these items:
+Address these items in dcm4chee:
 
 * 17:22:14,538 WARN  [SecurityMetadataStore] WARNING! POTENTIAL SECURITY RISK. It has been detected that the MessageSucker component which sucks messages from one node to another has not had its password changed from the installation default. Please see the JBoss Messaging user guide for instructions on how to do this.
+
+
+=Installing Weasis=
+
+Weasis is a web-based viewer for DICOM images.  It integrates well with the dcm4chee-web interface.  To install it download these items.
+
+<code language=bash>
+wget -O weasis.war http://downloads.sourceforge.net/project/dcm4che/Weasis/1.2.4/weasis.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2F1.2.4%2F&ts=1365714005&use_mirror=iweb
+
+wget -O dcm4chee-web-weasis.jar http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/dcm4chee-web-weasis.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713720&use_mirror=iweb
+
+wget -O weasis-pacs-connector.war http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/weasis-pacs-connector.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713898&use_mirror=hivelocity
+</code>
