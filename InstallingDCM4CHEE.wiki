@@ -209,8 +209,8 @@ sudo mv *weasis*.*ar /opt/dcm4chee-2.17.1-mysql/server/default/deploy/
 To activate Weasis, go to the JMX console (at http://localhost:8080/jmx-console)
 In dcm4chee.web select service=WebConfig and set these two values:
 
-* "WebviewerNames" = weasis
-* "WebviewerBaseUrl" = NONE
+ * WebviewerNames = weasis
+ * WebviewerBaseUrl = NONE
 
 Click the Apply Changes button
 
@@ -218,11 +218,11 @@ Click the Apply Changes button
 
 The default configuration of Weasis is stored in two files inside weasis.war. To override the default configuration download default configuration files and customize them.
 
-* Go to http://dcm4che.svn.sourceforge.net/viewvc/dcm4che/weasis/weasis_dcm4chee/trunk/
-* Select the latest version and navigate to src/main/resources
-* Download weasis-connector-default.properties and rename it weasis-pacs-connector.properties
-* Download weasis-jnlp-default.xml and rename it weasis-jnlp.xml
-* Copy the files to the classpath of the Servlet container. The best location would typically be server/default/conf.
-* Change the AE Title, pacs.aet, in the file weasis-pacs-connector.properties to match that of dcm4chee 
+ * Go to http://dcm4che.svn.sourceforge.net/viewvc/dcm4che/weasis/weasis_dcm4chee/trunk/
+ * Select the latest version and navigate to src/main/resources
+ * Download weasis-connector-default.properties and rename it weasis-pacs-connector.properties
+ * Download weasis-jnlp-default.xml and rename it weasis-jnlp.xml
+ * Copy the files to the classpath of the Servlet container. The best location would typically be server/default/conf.
+ * Change the AE Title, pacs.aet, in the file weasis-pacs-connector.properties to match that of dcm4chee 
 Adjust pacs.host, and pacs.port if needed.
-* Changes to weasis-jnlp.xml are needed less often.
+ * Changes to weasis-jnlp.xml are needed less often.
