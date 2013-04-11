@@ -201,9 +201,9 @@ Weasis is a web-based viewer for DICOM images.  It integrates well with the dcm4
 <code language=bash>
 cd /tmp
 
-wget -O weasis.war http://downloads.sourceforge.net/project/dcm4che/Weasis/1.2.4/weasis.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2F1.2.4%2F&ts=1365714005&use_mirror=iweb
-wget -O dcm4chee-web-weasis.jar http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/dcm4chee-web-weasis.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713720&use_mirror=iweb
-wget -O weasis-pacs-connector.war http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/weasis-pacs-connector.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713898&use_mirror=hivelocity
+wget -O weasis.war http://downloads.sourceforge.net/project/dcm4che/Weasis/1.2.4/weasis.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2F1.2.4%2F&ts=1365714005&use_mirror=iweb 
+wget -O dcm4chee-web-weasis.jar http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/dcm4chee-web-weasis.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713720&use_mirror=iweb 
+wget -O weasis-pacs-connector.war http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/weasis-pacs-connector.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713898&use_mirror=hivelocity 
 sudo mv *weasis*.*ar /opt/dcm4chee-2.17.1-mysql/server/default/deploy/
 </code>
 
