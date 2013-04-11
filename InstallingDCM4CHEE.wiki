@@ -224,5 +224,5 @@ The default configuration of Weasis is stored in two files inside weasis.war. To
  * Download weasis-jnlp-default.xml and rename it weasis-jnlp.xml
  * Copy the files to the classpath of the Servlet container. The best location would typically be server/default/conf.
  * Change the AE Title, pacs.aet, in the file weasis-pacs-connector.properties to match that of dcm4chee 
-Adjust pacs.host, and pacs.port if needed.
+ * Adjust pacs.host, and pacs.port if needed.
  * Changes to weasis-jnlp.xml are needed less often.
