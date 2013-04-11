@@ -201,31 +201,28 @@ Weasis is a web-based viewer for DICOM images.  It integrates well with the dcm4
 <code language=bash>
 cd /tmp
 wget -O weasis.war http://downloads.sourceforge.net/project/dcm4che/Weasis/1.2.4/weasis.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2F1.2.4%2F&ts=1365714005&use_mirror=iweb
-
 wget -O dcm4chee-web-weasis.jar http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/dcm4chee-web-weasis.jar?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713720&use_mirror=iweb
-
 wget -O weasis-pacs-connector.war http://downloads.sourceforge.net/project/dcm4che/Weasis/dcm4chee-web3/3.0.1/weasis-pacs-connector.war?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fdcm4che%2Ffiles%2FWeasis%2Fdcm4chee-web3%2F3.0.1%2F&ts=1365713898&use_mirror=hivelocity
-
 sudo mv *weasis*.*ar /opt/dcm4chee-2.17.1-mysql/server/default/deploy/
 </code>
 
 To activate Weasis, go to the JMX console (at http://localhost:8080/jmx-console)
 In dcm4chee.web select service=WebConfig and set these two values:
 
-* WebviewerNames = weasis
-* WebviewerBaseUrl = NONE
+* "WebviewerNames" = weasis
+* "WebviewerBaseUrl" = NONE
 
 Click the Apply Changes button
 
 ==Configure Weasis==
-The default configuration of Weasis is stored in two files inside weasis.war.
-To override the default configuration:
-Go to http://dcm4che.svn.sourceforge.net/viewvc/dcm4che/weasis/weasis_dcm4chee/trunk/
-Select the latest version and navigate to src/main/resources
-Download weasis-connector-default.properties and rename it weasis-pacs-connector.properties
-Download weasis-jnlp-default.xml and rename it weasis-jnlp.xml
-Copy the files to the classpath of the Servlet container. The best location would typically be server/default/conf.
-Edit the configuration as needed.
-For example, dcm4chee may be running on a different computer than Weasis, or the AE Title of dcm4chee may have been been changed.
-If so, edit weasis-pacs-connector.properties. Change pacs.host, pacs.port, and pacs.aet.
-Changes to weasis-jnlp.xml are needed less often.
+
+The default configuration of Weasis is stored in two files inside weasis.war. To override the default configuration download default configuration files and customize them.
+
+* Go to http://dcm4che.svn.sourceforge.net/viewvc/dcm4che/weasis/weasis_dcm4chee/trunk/
+* Select the latest version and navigate to src/main/resources
+* Download weasis-connector-default.properties and rename it weasis-pacs-connector.properties
+* Download weasis-jnlp-default.xml and rename it weasis-jnlp.xml
+* Copy the files to the classpath of the Servlet container. The best location would typically be server/default/conf.
+* Change the AE Title, pacs.aet, in the file weasis-pacs-connector.properties to match that of dcm4chee 
+Adjust pacs.host, and pacs.port if needed.
+* Changes to weasis-jnlp.xml are needed less often.
