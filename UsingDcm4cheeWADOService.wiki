@@ -9,7 +9,7 @@ We would like to link research images to other systems that contain data relatin
 
 WADO uses these IDs to identify an image of set of images:
 
-|| WADO URL parameter || Description || DICOM Field Name ||
+|| WADO URL parameter || Description || DICOM Field Name in dcm4chee ||
 || studyUID || Identifies study of a patient.  Contains 1 or more image sets || Study Instance UID ||
 || seriesUID || Identifies a set of images || Study Instance UID ||
 || objectUID || Identifies a single image within a set of images || SOP Instance UID ||
