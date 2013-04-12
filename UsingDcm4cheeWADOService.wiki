@@ -4,6 +4,9 @@
 
 We would like to link research images to other systems that contain data relating to study subjects.  The system in question will probably by REDCap but need to describe general methods to make images accessible via WADO.
 
+= References =
+
+See the WADO Specification at http://medical.nema.org/dicom/2004/04_18PU.PDF
 
 = WADO IDs =
 
