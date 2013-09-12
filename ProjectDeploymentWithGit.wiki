@@ -31,62 +31,63 @@ Note: this process can only be performed by team leads on the staging and produc
 
 Configuring an application for deployment is a one-time operation that requires access to the git repository and ssh access to the target host.  It is much easier to do if you have set up an ssh keypair to suppress password input.  This procedure assumes that a keypair is already setup.
 
-  * ssh to the remote host to create a bare repository and the target directory
+ssh to the remote host to create a bare repository and the target directory
 
 {{{
-  ssh staging.example.org
-  mkdir -p /home/deploy/my_project.git
-  cd /home/deploy/my_project.git
-  git init --bare
-  chmod -R 775 /home/deploy/my_project.git
+ssh staging.example.org
+mkdir -p /home/deploy/my_project.git
+cd /home/deploy/my_project.git
+git init --bare
+chmod -R 775 /home/deploy/my_project.git
 }}}
 
 If you are deploying a PHP Project you'll then need to set up the project directory at /var/www
 
 {{{
-  sudo mkdir /var/www/my_project
-  sudo chown -R www-data:users /var/www/my_project
-  sudo chmod -R 570 /var/www/my_project
+sudo mkdir /var/www/my_project
+sudo chown -R www-data:users /var/www/my_project
+sudo chmod -R 570 /var/www/my_project
 }}}
 
-Then
-  exit
+Then exit
 
-  * Back on your development host, create a post-receive script in source control for your project.  There is an example file, post-receive.example.txt, in the forge.  This tool is part of a suite of rsync and git deployment tools.  It can be checked out with the command
+Back on your development host, create a post-receive script in source control for your project.  There is an example file, post-receive.example.txt, in the forge.  This tool is part of a suite of rsync and git deployment tools.  It can be checked out with the command
 
 {{{
-  git clone git+ssh://code.google.  blah blah blah
+git clone git+ssh://code.google.  blah blah blah
 }}}
 
-  * Download this script and adjust it for your project. If your staging and production deployments will differ, copy the file to post-receive.staging and post-receive.prod and make the appropriate changes in each.
+Download this script and adjust it for your project. If your staging and production deployments will differ, copy the file to post-receive.staging and post-receive.prod and make the appropriate changes in each.
 
-  * Copy the post-receive file to the hooks directory in your bare git repo.
+Copy the post-receive file to the hooks directory in your bare git repo.
 
 {{{
-  scp post-receive.staging staging.example.org:/home/deploy/my_project.git/hooks/post-receive
+scp post-receive.staging staging.example.org:/home/deploy/my_project.git/hooks/post-receive
 }}}
 
-  * Make post-receive executable
+Make post-receive executable
 
 {{{
-  ssh staging.example.org
-  cd /home/deploy/my_project.git/hooks
-  sudo chmod +x post-receive
+ssh staging.example.org
+cd /home/deploy/my_project.git/hooks
+sudo chmod +x post-receive
 }}}
 
 == Setting Up for Local Git Repo Deployment ==
 
-  * Configure your local git repo to use the remote repo you created above
+Configure your local git repo to use the remote repo you created above
 
 {{{
-  git remote add staging ssh://staging.example.org/home/deploy/my_project.git
+git remote add staging ssh://staging.example.org/home/deploy/my_project.git
 }}}
 
-    NOTE:  You should name the remote to match standard web address of the server to keep things consistent between projects.
+NOTE:  You should name the remote to match standard web address of the server to keep things consistent between projects.
 
-  * Determine what branch to push to the remote location. This should always be master. Finally make your first deployment of the master branch to the remote repo.  
+Determine what branch to push to the remote location. This should always be master. Finally make your first deployment of the master branch to the remote repo.  
 
-  git push staging +master:refs/heads/master
+{{{
+git push staging +master:refs/heads/master
+}}}
 
 Test your app at https://staging.example.org/my_project
 
@@ -94,11 +95,15 @@ Test your app at https://staging.example.org/my_project
 
 Redeploying your code is is easy as updating a remote repository.  First make sure you have the latest copy of master:
 
-  git checkout master
+{{{
+git checkout master
+}}}
 
 Then push the changes to the 'staging' remote.
 
-  git push staging
+{{{
+git push staging
+}}}
 
 This will complete in a few seconds and your app will be updated.
 
@@ -109,7 +114,8 @@ Other Teams Leads will need some guidance if they are deploying your code.  Help
 == Issues with Sharing Releasing ==
 
 Often the directory is set to the user who created the release.  To fix this follow these steps:
-* copy over the old .git file using your sudo rights to a new location such as project-name-old.git.
-* redo the procedures for initializing a new directory so it appears with your rights
-* copy the post-receive hook from the project-name-old.git folder
-* redo the git push servername +master:refs/heads/master
+
+  * copy over the old .git file using your sudo rights to a new location such as project-name-old.git.
+  * redo the procedures for initializing a new directory so it appears with your rights
+  * copy the post-receive hook from the project-name-old.git folder
+  * redo the git push servername +master:refs/heads/master
