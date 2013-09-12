@@ -25,7 +25,7 @@ GIT_WORK_TREE=$RELDIR git checkout -f
 umask 22
 }}}
 
-== Setting Up for Target Host for Deployment ==
+== Setting Up the Target Host for Deployment ==
 
 Note: this process can only be performed by team leads on the staging and production hosts.
 
@@ -81,7 +81,7 @@ Configure your local git repo to use the remote repo you created above
 git remote add staging ssh://staging.example.org/home/deploy/my_project.git
 }}}
 
-NOTE:  You should name the remote to match standard web address of the server to keep things consistent between projects.
+NOTE: You should name the remote to match standard web address of the server to keep things consistent between projects.
 
 Determine what branch to push to the remote location. This should always be master. Finally make your first deployment of the master branch to the remote repo.  
 
@@ -111,7 +111,7 @@ This will complete in a few seconds and your app will be updated.
 
 Other Teams Leads will need some guidance if they are deploying your code.  Help them out by making a readme file in ./deploy of your project based on the example file, readMe.ProdAndStage.txt.example, in the forge.  This file is part of the suite of rsync and git deployment tools found at git@code.google.com blah blah blah 
 
-== Issues with Sharing Releasing ==
+== Issues with Sharing Releasing Tasks ==
 
 Often the directory is set to the user who created the release.  To fix this follow these steps:
 
