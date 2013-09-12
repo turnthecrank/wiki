@@ -4,7 +4,7 @@
 
 The common deployment directory, /home/deploy, requires special setup so that multiple users can deploy the same project.  The deployment directory should be setup as follows:
 
-&lt;pre&gt;
+{{{
 #!/bin/sh
 mkdir -p /home/deploy
 cd /home/deploy
@@ -12,18 +12,18 @@ find . -maxdepth 2 -type d | xargs -i sudo chmod g+s {}
 sudo chmod -R g+rw *
 sudo chmod -R a+r *
 sudo chown -R $USER.deploy *
-&lt;/pre&gt;
+}}}
 
 This procedure assumes a group, deploy, which has all of the team leads as members.
 
 For these permissions to work correctly the post-receive hook will need to wrap the git checkout command inside two umask commands.  E.g.
 
-&lt;pre&gt;
+{{{
 ## checkout the master to the release directory
 umask 2
 GIT_WORK_TREE=$RELDIR git checkout -f
 umask 22
-&lt;/pre&gt;
+}}}
 
 == Setting Up for Target Host for Deployment ==
 
