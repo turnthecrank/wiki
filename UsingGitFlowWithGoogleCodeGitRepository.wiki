@@ -12,7 +12,7 @@ The purpose of this series of articles is for me to condense all the information
 
 *Helpful links \ Required reading*
   *  Getting Started with Google Code [http://code.google.com/p/support/wiki/GettingStarted]
-  *  Getting Started with git-flow [http://yakiloo.com/getting-started-git-flow/]
+  *  Getting Started with git-flow [http://nvie.com/posts/a-successful-git-branching-model/]
 
  
 
