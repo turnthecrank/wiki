@@ -37,3 +37,7 @@ RPMSv2TestDeployment [RPMSv2TestDeployment.wiki](RPMSv2TestDeployment.wiki)
 ## Gitflow first feature primer
 
 Using gitflow and Google code remote git repository to create your first feature. [gitflowFirstfeature.wiki](gitflowFirstfeature.wiki)
+
+### References
+
+The TurnTheCrank avatar is taken from [http://media.web.britannica.com/eb-media/88/131388-004-413CCF8B.jpg](http://media.web.britannica.com/eb-media/88/131388-004-413CCF8B.jpg)
